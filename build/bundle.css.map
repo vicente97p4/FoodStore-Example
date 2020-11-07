@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "Main.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\r\n  import { foodStore } from \"../store.js\";\r\n  let myMoney = 0;\r\n  let foodList = $foodStore;\r\n  /*\r\n  console.log(foodStore);\r\n  foodStore.subscribe((someThing) => {\r\n    foodList = someThing;\r\n  });\r\n\r\n  foodStore.update((value) => {\r\n    value.push({ name: \"맥주\", price: 2500 });\r\n    return value;\r\n  });\r\n\r\n  const resetFoodList = function () {\r\n    foodStore.set([]);\r\n  };\r\n  */\r\n</script>\r\n\r\n<style lang=\"scss\">/* Variables */\n/* End: Variables */\n/* End: Mixins */\n.container {\n  width: 100%;\n  min-height: 100%; }\n  .container .food-list {\n    background-color: yellow;\n    padding: 16px; }\n    .container .food-list .food {\n      padding: 8px;\n      border: 1px solid #707070; }\n      .container .food-list .food.cant {\n        opacity: 0.5; }\n  .container p {\n    font-size: 28px;\n    font-weight: 900; }\n</style>\r\n\r\n<div class=\"container\">\r\n  <input type=\"number\" bind:value={myMoney} />\r\n  <div class=\"food-list\">\r\n    {#each foodList as food}\r\n      {#if food.price > myMoney}\r\n        <div class=\"food cant\">\r\n          <p class=\"name\">{food.name}</p>\r\n          <p class=\"price\">{food.price}</p>\r\n        </div>\r\n      {:else}\r\n        <div class=\"food\">\r\n          <p class=\"name\">{food.name}</p>\r\n          <p class=\"price\">{food.price}</p>\r\n        </div>\r\n      {/if}\r\n    {/each}\r\n  </div>\r\n</div>\r\n"
+  ],
+  "names": [],
+  "mappings": "AAwBA,UAAU,8BAAC,CAAC,AACV,KAAK,CAAE,IAAI,CACX,UAAU,CAAE,IAAI,AAAE,CAAC,AACnB,yBAAU,CAAC,UAAU,eAAC,CAAC,AACrB,gBAAgB,CAAE,MAAM,CACxB,OAAO,CAAE,IAAI,AAAE,CAAC,AAChB,yBAAU,CAAC,UAAU,CAAC,KAAK,eAAC,CAAC,AAC3B,OAAO,CAAE,GAAG,CACZ,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,OAAO,AAAE,CAAC,AAC5B,yBAAU,CAAC,UAAU,CAAC,KAAK,KAAK,eAAC,CAAC,AAChC,OAAO,CAAE,GAAG,AAAE,CAAC,AACrB,yBAAU,CAAC,CAAC,eAAC,CAAC,AACZ,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,GAAG,AAAE,CAAC"
+}
